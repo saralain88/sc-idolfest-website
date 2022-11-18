@@ -22,7 +22,6 @@ const headersData = [
     label: "Register",
     href: "/register",
   },
-  */
   {
     label: "Hotel",
     href: "/hotel",
@@ -149,6 +148,7 @@ const headersData = [
     // },
     ],
   },
+  */
 ];
 
 const useStyles = makeStyles(theme => ({
@@ -203,12 +203,16 @@ const { site } = useStaticQuery(
                 site {
                     siteMetadata {
                         shortDates
+                        longDates
+                        location
                     }
                 }            
             }`
     )
 
 const dates = site.siteMetadata.shortDates
+const longDates = site.siteMetadata.shortDates
+const location = site.siteMetadata.location
 
 
   const [state, setState] = useState({
@@ -253,7 +257,7 @@ const dates = site.siteMetadata.shortDates
           </Link>
         </Grid>
         <Grid item className={classes.dates}>
-          {dates} | Seattle, WA
+          {dates} | {location}
         </Grid>
         <header style={{ display: 'flex', flexDirection: 'row', marginLeft: 'auto' }} className={classes.item}>
           { getMenuButtonsDropdown(handleClick, handleClose, state) }
@@ -301,8 +305,8 @@ const dates = site.siteMetadata.shortDates
           {idolfestLogo}
         </Link>
         <div className={classes.dates} style={{ display: 'flex', flexDirection: 'column', marginLeft: 'auto', alignItems: 'flex-end' }}>
-          <div>Oct 21-23, 2022</div>
-          <div>Seattle, WA</div>
+          <div>{longDates}</div>
+          <div>{location}</div>
         </div>
       </Toolbar>
     );
@@ -349,7 +353,7 @@ const dates = site.siteMetadata.shortDates
           alt=''
           width={300}
           transformOptions={{fit: "contain"}}
-          src='../images/logo/Logo Pink.svg'
+          src='../images/logo/socal_test.png'
           placeholder='none'
           backgroundColor='transparent'
           />

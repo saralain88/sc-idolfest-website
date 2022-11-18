@@ -23,11 +23,12 @@ export default function Hero({ header, body }) {
       <StaticImage
         style={{
           gridArea: '1/1',
-          maxHeight: '80vh',
+          maxHeight: '60vh',
         }}
         // This is a presentational image, so the alt should be an empty string
         alt=''
-        src='../images/collage22.png'
+        // src='../images/collage22.png'
+        src='../images/heroimage.png'
         layout='fullWidth'
         backgroundColor='rgba(0, 0, 0, 0.45)'
         // aspectRatio={16 / 9}

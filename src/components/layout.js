@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
         <Box style={{ height: '100%' }}>
           <Grid className={classes.root} alignItems='stretch' container wrap={'nowrap'} justify='space-between' direction='column'>
               <Grid>
-                <Header />
+                {/* <Header /> */}
               </Grid>
               <Grid item color="primary" className={classes.content}>    
                 <main>{children}</main>

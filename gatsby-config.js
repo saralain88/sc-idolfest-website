@@ -4,18 +4,19 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `NW IdolFest`,
-    shortDates: 'Oct 21-23, 2022',
-    longDates: 'October 21-23, 2022',
-    siteUrl: 'https://nwidolfest.com',
-    description: `Get ready to experience idol like you never have before! Coming to the Seattle Airport DoubleTree on Oct 21-23, 2022.`,
-    author: `The NW IdolFest Team`,
+    title: `SC IdolFest`,
+    shortDates: 'Aug 12, 2023',
+    longDates: 'August 12, 2023',
+    location: 'Torrance, CA',
+    siteUrl: 'https://scidolfest.com',
+    description: `Get ready to experience idol fun in the sun! Coming to the Torrance Cultural Center on Aug 12, 2023.`,
+    author: `The SC IdolFest Team`,
     social: {
-      twitter: '@NWIdolFest',
-      facebook: 'NWIdolFest',
-      instagram: 'NWIdolFest',
+      twitter: '@SCIdolFest',
+      facebook: 'SCIdolFest',
+      instagram: 'SCIdolFest',
       discord: 'h5yJbXgTgE',
-      email: 'contact@nwidolfest.com',
+      email: 'contact@scidolfest.com',
     }
   },
   plugins: [
@@ -89,13 +90,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `NW IdolFest`,
-        short_name: `nwidolfest`,
+        name: `SC IdolFest`,
+        short_name: `scidolfest`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/icon/Icon-Pink.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon/Icon-Orange.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-gatsby-cloud`,

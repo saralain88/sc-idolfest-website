@@ -4,7 +4,7 @@ import Layout from '@components/layout'
 import Seo from '@components/seo'
 import PageContent from '@components/PageContent'
 import NewsletterSignup from '@components/NewsletterSignup'
-import PageHeader from '@components/PageHeader'
+// import PageHeader from '@components/PageHeader'
 
 const IndexPage = () => {
   return (
@@ -12,16 +12,16 @@ const IndexPage = () => {
       <Seo title="Home" />
 
       <Hero 
-        // header="Announcing NW IdolFest 2022!"
+        header="Announcing SC IdolFest 2023!"
       />
 
-      <PageHeader 
-        title="Thank you for attending NW IdolFest 2022!" 
-      />
+      {/* <PageHeader 
+        title="Announcing SC IdolFest 2023!" 
+      /> */}
 
       <PageContent>
-        <p>Thank you for attending Northwest IdolFest 2022! If you have any feedback for us, please tell us on the <a href="https://idolfe.st/feedback">feedback form</a>.</p><br />
-        <p>Sign up for our email list below to get notified when our next convention will be!</p>
+        <p>We're so excited to announce SoCal IdolFest. SCIF will be coming to the Torrance Cultural Center on August 12, 2023.</p><br />
+        <p>Sign up for our email list below to get all the latest SCIF updates!</p>
         <NewsletterSignup />
       </PageContent>
     </Layout>

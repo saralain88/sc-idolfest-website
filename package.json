@@ -1,7 +1,7 @@
 {
-  "name": "nw-idolfest-website",
+  "name": "sc-idolfest-website",
   "private": true,
-  "description": "The NW IdolFest website.",
+  "description": "The SC IdolFest website.",
   "version": "0.1.0",
   "author": "Shir Goldberg",
   "dependencies": {
@@ -63,6 +63,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nwidolfest/nw-idolfest-website"
+    "url": "https://github.com/idolfest/sc-idolfest-website"
   }
 }
