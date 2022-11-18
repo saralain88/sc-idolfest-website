@@ -9,7 +9,7 @@ export default function LogoUrl() {
                         siteUrl
                     }
                 }
-                ogImageDefault: file(relativePath: {eq: "icon/Icon-Pink.png"}) { 
+                ogImageDefault: file(relativePath: {eq: "icon/Icon-Orange.png"}) { 
                     childImageSharp {
                         fixed(height: 260, width: 260) {
                             src
