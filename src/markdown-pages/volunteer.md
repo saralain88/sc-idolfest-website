@@ -8,4 +8,7 @@ SoCal IdolFest is a passion project founded by experienced event organizers. Our
 
 Volunteering for the 2023 event is now open!
 
+Please make sure to read and understand the <a href="https://idolfe.st/staffagreement" target="_blank">Volunteer Agreement</a> before
+signing up. 
+
 <a href="https://forms.gle/FWGwcQeiXPTv8fCh9" target="_blank">Apply here!</a>
