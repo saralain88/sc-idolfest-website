@@ -127,11 +127,10 @@ const headersData = [
     label: "About",
     href: "/about",
     children: [
-    // NOTE: We should probably update this kinda soon
-    /*{
+    {
       label: "The Team",
       href: "/about"
-    },*/
+    },
     {
       label: "Volunteer",
       href: "/volunteer"
