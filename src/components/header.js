@@ -27,6 +27,16 @@ const headersData = [
     href: "/hotel",
   },
   */
+  {
+    label: "Apply to Perform",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSeKFD9nhgx_1AbRvjYX-CWFi96PFPgFoN2AF-kwz7gJOCzGCw/viewform",
+    target: "_blank"
+  },
+  {
+    label: "Apply as a Vendor",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLScY61eFDGhnNvpCb_pLn33rr7sMCcxKCfbJ5F-GGFSfLdidnw/viewform",
+    target: "_blank"
+  },
   /*
   {
     label: "Guests",
@@ -317,22 +327,24 @@ const location = site.siteMetadata.location
   };
 
   const getDrawerChoices = () => {
-    return headersData.map(({ label, href, children }) => {
+    return headersData.map(({ label, href, target, children }) => {
         return (
           <>
           <Link
             to={href}
             key={href}
+            target={target ?? "_self"}
           >
             {label}
           </Link>
           { children ? 
             <> 
-            { children.map(({ label, href }) => {
+            { children.map(({ label, href, target }) => {
               return (
                 <Link
                   to={href}
                   key={href}
+                  target={target ?? "_self"}
                   style={{
                     marginLeft: '1em'
                   }}
@@ -366,7 +378,7 @@ const location = site.siteMetadata.location
   );
 
   const getMenuButtonsDropdown = (handleClick, handleClose, state) => {
-      return headersData.map(({ label, href, children }) => {
+      return headersData.map(({ label, href, target, children }) => {
         return (
         <Grid item key={label}>
           { children ? 
@@ -374,6 +386,7 @@ const location = site.siteMetadata.location
                 <Button id={label} aria-controls={`idolfest-menu-${label}`} aria-haspopup="true" onMouseOver={handleClick} onClick={handleClick} aria-owns={state[label] ? `idolfest-menu-${label}` : null}>
                   <Link
                     to={href}
+                    target={target ?? "_self"}
                   >
                     {label}
                   </Link>
@@ -391,12 +404,13 @@ const location = site.siteMetadata.location
                   anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                   transformOrigin={{ vertical: "top", horizontal: "center" }}
                 >
-                  {children.map(({ label: childLabel, href: childHref }) => {
+                  {children.map(({ label: childLabel, href: childHref, target: childTarget }) => {
                     return (
                       <MenuItem onClick={handleClose.bind(this, label)} key={childLabel}>
                         <Button>
                           <Link
                             to={childHref}
+                            target={childTarget ?? "_self"}
                           >
                             {childLabel}
                           </Link>
@@ -410,6 +424,7 @@ const location = site.siteMetadata.location
             <Button>
               <Link
                 to={href}
+                target={target ?? "_self"}
               >
                 {label}
               </Link>
