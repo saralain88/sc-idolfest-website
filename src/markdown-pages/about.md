@@ -10,7 +10,7 @@ Though our beginnings may be humble, our love for idols knows no bounds. With yo
 
 ## The Chair
 
-**Coming Soon**
+**Lucas** (aka Mikotan) has been on the So Cal convention scene for over a decade and has been hosting and organizing events, including TouhouFest and AniMarketplace since 2019. He has extensive knowledge and experience in administration and finance and is glad to be spearheading this collaboration between AniMarketplace and NWIF!
 
 ## The Co-Chair
 
