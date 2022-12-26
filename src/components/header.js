@@ -30,12 +30,12 @@ const headersData = [
   {
     label: "Apply to Perform",
     href: "https://docs.google.com/forms/d/e/1FAIpQLSeKFD9nhgx_1AbRvjYX-CWFi96PFPgFoN2AF-kwz7gJOCzGCw/viewform",
-    target: "_blank"
+    external: true,
   },
   {
     label: "Apply as a Vendor",
     href: "https://docs.google.com/forms/d/e/1FAIpQLScY61eFDGhnNvpCb_pLn33rr7sMCcxKCfbJ5F-GGFSfLdidnw/viewform",
-    target: "_blank"
+    external: true,
   },
   /*
   {
@@ -206,6 +206,9 @@ const useStyles = makeStyles(theme => ({
       textAlign: 'center',
       alignItems: 'center'
     }
+  },
+  menuButton: {
+    backgroundColor: 'transparent !important'
   }
 }))
 
@@ -243,6 +246,15 @@ const location = site.siteMetadata.location
     setState({ [id]: false, anchorEl: null })
   };
 
+  const handleMenuButtonClick = (label, event) => {
+    // If you click outside the button, move that click onto said button
+    const relevantChild = event.currentTarget?.querySelector("a[href]")
+    if (relevantChild) {
+      relevantChild.click();
+    }
+    handleClose(label);
+  }
+
   const { mobileView, drawerOpen } = state
 
   useEffect(() => {
@@ -274,7 +286,7 @@ const location = site.siteMetadata.location
           {dates} | {location}
         </Grid>
         <header style={{ display: 'flex', flexDirection: 'row', marginLeft: 'auto' }} className={classes.item}>
-          { getMenuButtonsDropdown(handleClick, handleClose, state) }
+          { getMenuButtonsDropdown(handleClick, handleClose, handleMenuButtonClick, state) }
         </header>
         </Grid>
       </Toolbar>
@@ -327,37 +339,61 @@ const location = site.siteMetadata.location
   };
 
   const getDrawerChoices = () => {
-    return headersData.map(({ label, href, target, children }) => {
-        return (
-          <>
+    return headersData.map(({ label, href, external, children }) => {
+        const link = external ? (
+          <a 
+            href={href} 
+            key={href} 
+            target="_blank" 
+            rel="noreferrer"
+          >
+            {label}
+          </a>) : (
           <Link
             to={href}
             key={href}
-            target={target ?? "_self"}
           >
             {label}
-          </Link>
+          </Link>)
+        return (
+          <React.Fragment key={`${href}-wrapper`}>
+          {link}
           { children ? 
-            <> 
-            { children.map(({ label, href, target }) => {
-              return (
-                <Link
-                  to={href}
-                  key={href}
-                  target={target ?? "_self"}
-                  style={{
-                    marginLeft: '1em'
-                  }}
-                >
-                  {label}
-                </Link>
-              )
+            <React.Fragment key={`${href}-children`}> 
+            { children.map(({ label, href, external }) => {
+              if (external) {
+                return (
+                  <a
+                    href={href}
+                    key={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      marginLeft: '1em'
+                    }}
+                  >
+                    {label}
+                  </a>
+                )
+              } else {
+                return (
+                  <Link
+                    to={href}
+                    key={href}
+                    style={{
+                      marginLeft: '1em'
+                    }}
+                  >
+                    {label}
+                  </Link>
+                )
+              }
             })}
-            </>
+            </React.Fragment>
           : 
             null
           }
-          </>
+          </React.Fragment>
         )
       })
   }
@@ -377,19 +413,20 @@ const location = site.siteMetadata.location
           />
   );
 
-  const getMenuButtonsDropdown = (handleClick, handleClose, state) => {
-      return headersData.map(({ label, href, target, children }) => {
+  const getMenuButtonsDropdown = (handleClick, handleClose, handleMenuButtonClick, state) => {
+      return headersData.map(({ label, href, external, children }) => {
+        const link = external ? 
+          (<a href={href} target="_blank" rel="noreferrer">
+            {label}
+          </a>) : (<Link to={href}>
+            {label}
+          </Link>);
         return (
         <Grid item key={label}>
           { children ? 
                 <>
                 <Button id={label} aria-controls={`idolfest-menu-${label}`} aria-haspopup="true" onMouseOver={handleClick} onClick={handleClick} aria-owns={state[label] ? `idolfest-menu-${label}` : null}>
-                  <Link
-                    to={href}
-                    target={target ?? "_self"}
-                  >
-                    {label}
-                  </Link>
+                  {link}
                   <FontAwesomeIcon icon={['fas', 'caret-down']} style={{ marginLeft: '10px' }} />
                 </Button>
                 <Menu
@@ -404,16 +441,18 @@ const location = site.siteMetadata.location
                   anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                   transformOrigin={{ vertical: "top", horizontal: "center" }}
                 >
-                  {children.map(({ label: childLabel, href: childHref, target: childTarget }) => {
+                  {children.map(({ label: childLabel, href: childHref, external: childExternal }) => {
+                    const childLink = childExternal ? 
+                      (<a href={href} target="_blank" rel="noreferrer">
+                        {childLabel}
+                      </a>) :
+                      (<Link to={childHref}>
+                        {childLabel}
+                      </Link>)
                     return (
-                      <MenuItem onClick={handleClose.bind(this, label)} key={childLabel}>
-                        <Button>
-                          <Link
-                            to={childHref}
-                            target={childTarget ?? "_self"}
-                          >
-                            {childLabel}
-                          </Link>
+                      <MenuItem onClick={handleMenuButtonClick.bind(this, label)} key={childLabel}>
+                        <Button className={classes.menuButton}>
+                          {childLink}
                         </Button>
                       </MenuItem>
                     );
@@ -422,12 +461,7 @@ const location = site.siteMetadata.location
                 </>
             :
             <Button>
-              <Link
-                to={href}
-                target={target ?? "_self"}
-              >
-                {label}
-              </Link>
+              {link}
             </Button>
           }
           </Grid>
