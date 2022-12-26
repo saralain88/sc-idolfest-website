@@ -17,15 +17,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useStaticQuery, graphql } from 'gatsby'
 
 const headersData = [
-  /*
-  {
+  /*{
     label: "Register",
     href: "/register",
-  },
+  },*/
+  /*
   {
     label: "Hotel",
     href: "/hotel",
   },
+  */
+  /*
   {
     label: "Guests",
     href: "/guests",
@@ -105,27 +107,29 @@ const headersData = [
         href: "/events/grandprix"
     }
     ]
-  },
+  },*/
+  /*
   {
     label: "Vendors",
     href: "/vendors",
-  },
+  },*/
   {
     label: "About",
     href: "/about",
     children: [
-    {
+    // NOTE: We should probably update this kinda soon
+    /*{
       label: "The Team",
       href: "/about"
-    },
+    },*/
     {
       label: "Volunteer",
       href: "/volunteer"
-    },
+    },/*
     {
       label: "Blog",
       href: "/blog"
-    },
+    },*/
     {
       label: "Contact",
       href: "/contact"
@@ -133,11 +137,11 @@ const headersData = [
     {
       label: "Policies",
       href: "/policies"
-    },
+    },/*
     {
       label: "Partners",
       href: "/partners"
-    },
+    },*/
     {
       label: "Discord",
       href: "/about/discord"
@@ -148,7 +152,7 @@ const headersData = [
     // },
     ],
   },
-  */
+  
 ];
 
 const useStyles = makeStyles(theme => ({
@@ -351,11 +355,13 @@ const location = site.siteMetadata.location
           layout='constrained'
           // This is a presentational image, so the alt should be an empty string
           alt=''
-          width={300}
+          width={260}
           transformOptions={{fit: "contain"}}
           src='../images/logo/socal_test.png'
           placeholder='none'
           backgroundColor='transparent'
+          // Simulating the border around the svg version for nwif
+          style={{margin: "20px"}}
           />
   );
 
