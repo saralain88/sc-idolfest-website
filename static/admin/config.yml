@@ -3,6 +3,8 @@ backend:
   branch: main
   repo: saralain88/sc-idolfest-website
   cms_label_prefix: web-editor/
+  # FIXME: Remove this unless it by some miracle works
+  site_domain: cms.netlify.com
 # FIXME: If we adopt this, this url obviously needs to change
 site_url: https://saralain88.github.io/sc-idolfest-website/
 logo_url: https://scidolfest.com/static/2ed145dd599d561ba9a42eb699912d6e/afe0d/socal_test.webp
