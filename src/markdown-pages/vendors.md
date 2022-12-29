@@ -3,8 +3,6 @@ slug: /vendors
 title: Vendors
 template: page
 ---
-import Grid from '@material-ui/core/Grid'
-import Avatar from '@components/avatar'
 
 ## Vendor Hall Hours
 

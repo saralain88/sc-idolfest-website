@@ -15,154 +15,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useStaticQuery, graphql } from 'gatsby'
-
-const headersData = [
-  /*{
-    label: "Register",
-    href: "/register",
-  },*/
-  /*
-  {
-    label: "Hotel",
-    href: "/hotel",
-  },
-  */
-  {
-    label: "Apply to Perform",
-    href: "https://docs.google.com/forms/d/e/1FAIpQLSeKFD9nhgx_1AbRvjYX-CWFi96PFPgFoN2AF-kwz7gJOCzGCw/viewform",
-    external: true,
-  },
-  {
-    label: "Apply as a Vendor",
-    href: "https://docs.google.com/forms/d/e/1FAIpQLScY61eFDGhnNvpCb_pLn33rr7sMCcxKCfbJ5F-GGFSfLdidnw/viewform",
-    external: true,
-  },
-  /*
-  {
-    label: "Guests",
-    href: "/guests",
-    children: [
-    {
-      label: "All Guests",
-      href: "/guests",
-    },
-    {
-      label: "Kaho Shibuya",
-      href: "/guests/kahoshibuya"
-    },
-    {
-      label: "Isiliel (Himari)",
-      href: "/guests/isiliel"
-    },
-    {
-      label: "Phoebe",
-      href: "/guests/phoebe"
-    },
-    {
-      label: "Rintaichou",
-      href: "/guests/rintaichou"
-    },
-    {
-      label: "Non Sweet",
-      href: "/guests/nonsweet"
-    },
-    {
-      label: "Jun (Lucia Hunter)",
-      href: "/guests/jun"
-    },
-    {
-      label: "Barri",
-      href: "/guests/barri"
-    },
-    {
-      label: "Eli Ebberts",
-      href: "/guests/eliebberts"
-    },
-    {
-      label: "Luluko",
-      href: "/guests/luluko"
-    },
-    ]
-  },
-  {
-    label: "Events",
-    href: "/events",
-    children: [
-    {
-        label: "Thursday Schedule",
-        href: "/events/thursday"
-    },
-    {
-        label: "Friday Schedule",
-        href: "/events/friday"
-    },
-    {
-        label: "Saturday Schedule",
-        href: "/events/saturday"
-    },
-    {
-        label: "Sunday Schedule",
-        href: "/events/sunday"
-    },
-    {
-        label: "Northern Lights",
-        href: "/events/northernlights"
-    },
-    {
-        label: "Masquerade",
-        href: "/events/masquerade"
-    },
-    {
-        label: "Grand Prix Song Contest",
-        href: "/events/grandprix"
-    }
-    ]
-  },*/
-  /*
-  {
-    label: "Vendors",
-    href: "/vendors",
-  },*/
-  {
-    label: "About",
-    href: "/about",
-    children: [
-    {
-      label: "The Team",
-      href: "/about"
-    },
-    {
-      label: "Volunteer",
-      href: "/volunteer"
-    },/*
-    {
-      label: "Blog",
-      href: "/blog"
-    },*/
-    {
-      label: "Contact",
-      href: "/contact"
-    },
-    {
-      label: "Policies",
-      href: "/policies"
-    },/*
-    {
-      label: "Partners",
-      href: "/partners"
-    },*/
-    {
-      label: "Discord",
-      href: "/about/discord"
-    },
-    // {
-    //   label: "Newsletter Signup",
-    //   href: "/newsletter"
-    // },
-    ],
-  },
-  
-];
+import headersData from './HeaderData.json';
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -338,7 +191,7 @@ const location = site.siteMetadata.location
   };
 
   const getDrawerChoices = () => {
-    return headersData.map(({ label, href, external, children }) => {
+    return headersData.filter(h => !h.disabled).map(({ label, href, external, children }) => {
         const link = external ? (
           <a 
             href={href} 
@@ -359,7 +212,9 @@ const location = site.siteMetadata.location
           {link}
           { children ? 
             <React.Fragment key={`${href}-children`}> 
-            { children.map(({ label, href, external }) => {
+            { children
+            .filter(c => !c.disabled)
+            .map(({ label, href, external }) => {
               if (external) {
                 return (
                   <a
@@ -413,7 +268,7 @@ const location = site.siteMetadata.location
   );
 
   const getMenuButtonsDropdown = (handleClick, handleClose, handleMenuButtonClick, state) => {
-      return headersData.map(({ label, href, external, children }) => {
+      return headersData.filter(h => !h.disabled).map(({ label, href, external, children }) => {
         const link = external ? 
           (<a href={href} target="_blank" rel="noreferrer">
             {label}
@@ -440,7 +295,7 @@ const location = site.siteMetadata.location
                   anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                   transformOrigin={{ vertical: "top", horizontal: "center" }}
                 >
-                  {children.map(({ label: childLabel, href: childHref, external: childExternal }) => {
+                  {children.filter(c => !c.disabled).map(({ label: childLabel, href: childHref, external: childExternal }) => {
                     const childLink = childExternal ? 
                       (<a href={href} target="_blank" rel="noreferrer">
                         {childLabel}

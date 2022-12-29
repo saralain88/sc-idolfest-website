@@ -1,0 +1,57 @@
+backend:
+  name: github
+  branch: main
+  repo: saralain88/sc-idolfest-website
+  cms_label_prefix: web-editor/
+# FIXME: If we adopt this, this url obviously needs to change
+site_url: https://saralain88.github.io/sc-idolfest-website/
+logo_url: https://scidolfest.com/static/2ed145dd599d561ba9a42eb699912d6e/afe0d/socal_test.webp
+# This is where it's stored in the repo
+media_folder: "/static/images/uploads"
+# This is where it is url-wise
+public_folder: "/images/uploads"
+collections: 
+  - name: "root-pages"
+    label: "Top-Level"
+    folder: "src/markdown-pages/"
+    create: true
+    delete: true
+    slug: "{{slug}}" # (    o_o) slug
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Template", name: "template", widget: "hidden", default: "page"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "blog-posts"
+    label: "Blog"
+    # NOTE: This needs to be updated for each event to make blogs work
+    folder: "src/markdown-pages/blog/2022"
+    create: true
+    delete: true
+    slug: "{{slug}}" # (    o_o) slug
+    sort: 'date:desc'
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Template", name: "template", widget: "hidden", default: "blogpost"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "about"
+    label: "About Section"
+    folder: "src/markdown-pages/about"
+    create: true
+    delete: true
+    slug: "{{slug}}" # (    o_o) slug
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Template", name: "template", widget: "hidden", default: "page"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "events"
+    label: "Events Section"
+    folder: "src/markdown-pages/events"
+    create: true
+    delete: true
+    slug: "{{slug}}" # (    o_o) slug
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Template", name: "template", widget: "hidden", default: "page"}
+      - {label: "Body", name: "body", widget: "markdown"}
