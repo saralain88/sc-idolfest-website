@@ -6,7 +6,7 @@
     "siteUrl":"https://saralain88.github.io/sc-idolfest-website",
     "description":"Get ready to experience idol fun in the sun! Coming to the Torrance Cultural Center on Aug 12, 2023.",
     "author":"The SC IdolFest Team",
-    "pathPrefix": "/sc-idolfest-website",
+    "pathPrefix": "/sc-idolfest-website/",
     "social":{
       "twitter":"@SCIdolFest",
       "facebook":"SCIdolFest",
