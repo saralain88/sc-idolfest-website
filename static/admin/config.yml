@@ -15,6 +15,7 @@ public_folder: "/images/uploads"
 collections: 
   - name: "blog-posts"
     label: "Blog Entries"
+    label_singular: "Blog Entry"
     # NOTE: This needs to be updated for each event to make blogs work
     folder: "src/markdown-pages/blog/2022"
     create: true
@@ -29,6 +30,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "root-pages"
     label: "Top-Level Pages"
+    label_singular: "Top-Level Page"
     folder: "src/markdown-pages/"
     create: true
     delete: true
@@ -38,7 +40,8 @@ collections:
       - {label: "Template", name: "template", widget: "hidden", default: "page"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "about"
-    label: "About Section"
+    label: "About Section Pages"
+    label_singular: "About Section Page"
     folder: "src/markdown-pages/about"
     create: true
     delete: true
@@ -48,7 +51,8 @@ collections:
       - {label: "Template", name: "template", widget: "hidden", default: "page"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "events"
-    label: "Events Section"
+    label: "Events Section Pages"
+    label_singular: "Events Section Page"
     folder: "src/markdown-pages/events"
     create: true
     delete: true
@@ -80,12 +84,14 @@ collections:
             - {label: "Discord", name: "discord", widget: "string"}
             - {label: "Email", name: "email", widget: "string"}
     - label: "Navigation Items"
+      label_singular: "Navigation Item"
       name: "navigation"
       file: "src/components/HeaderData.json"
       extension: "json"
       description: "Items to show in site navigation"
       fields: 
         - label: "Navigation Items"
+          label_singular: "Navigation Item"
           name: "headersData"
           widget: "list"
           fields: 
@@ -93,7 +99,8 @@ collections:
             - {label: "Page path (short - example: /register or /guests/phoebe)", name: href, widget: string}
             - {label: "Hidden from Navigation", name: disabled, widget: boolean, required: false}
             - {label: "Link is to outside website (eg google docs)", name: external, widget: boolean, required: false}
-            - label: Child Pages
+            - label: Child Navigation Items
+              label_singular: Child Navigation Item
               name: children
               widget: list
               fields: 
