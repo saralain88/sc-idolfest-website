@@ -13,18 +13,8 @@ media_folder: "/static/images/uploads"
 # This is where it is url-wise
 public_folder: "/images/uploads"
 collections: 
-  - name: "root-pages"
-    label: "Top-Level"
-    folder: "src/markdown-pages/"
-    create: true
-    delete: true
-    slug: "{{slug}}" # (    o_o) slug
-    fields: 
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Template", name: "template", widget: "hidden", default: "page"}
-      - {label: "Body", name: "body", widget: "markdown"}
   - name: "blog-posts"
-    label: "Blog"
+    label: "Blog Entries"
     # NOTE: This needs to be updated for each event to make blogs work
     folder: "src/markdown-pages/blog/2022"
     create: true
@@ -37,7 +27,16 @@ collections:
       - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD"}
       - {label: "Template", name: "template", widget: "hidden", default: "blogpost"}
       - {label: "Body", name: "body", widget: "markdown"}
-
+  - name: "root-pages"
+    label: "Top-Level Pages"
+    folder: "src/markdown-pages/"
+    create: true
+    delete: true
+    slug: "{{slug}}" # (    o_o) slug
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Template", name: "template", widget: "hidden", default: "page"}
+      - {label: "Body", name: "body", widget: "markdown"}
   - name: "about"
     label: "About Section"
     folder: "src/markdown-pages/about"
