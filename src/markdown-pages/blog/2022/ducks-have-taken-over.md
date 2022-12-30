@@ -1,6 +1,6 @@
 ---
 title: Ducks have taken over
-date: 2022-12-29T05:14:40.945Z
+date: 2022-12-29
 template: blogpost
 slug: ducks-have-taken-over
 ---
