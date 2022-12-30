@@ -23,7 +23,7 @@
     {
       "label": "Guests",
       "href": "/guests",
-      "disabled": false,
+      "disabled": true,
       "children": [
         {
           "label": "All Guests",
@@ -64,10 +64,6 @@
         {
           "label": "Luluko",
           "href": "/guests/luluko"
-        },
-        {
-          "label": "Rina Tennoji RETURNS",
-          "href": "/rina"
         }
       ]
     },
