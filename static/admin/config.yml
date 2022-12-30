@@ -29,6 +29,7 @@ collections:
     folder: "src/markdown-pages/blog/2022"
     create: true
     delete: true
+    summary: "{{fields.title}} ({{fields.date}})"
     slug: "{{slug}}" # (    o_o) slug
     sort: 'date:desc'
     fields: 
@@ -57,3 +58,39 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Template", name: "template", widget: "hidden", default: "page"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Site Settings"
+    name: "general"
+    files: 
+    - label: "Site Metadata"
+      name: "site-metadata"
+      file: "siteMetadata.json"
+      extension: "json"
+      description: "General Site Settings"
+      fields:
+        - {label: "Global title", name: "title", widget: "string"}
+        - {label: "Short Dates", name: "shortDates", widget: "string"}
+        - {label: "Long Dates", name: "longDates", widget: "string"}
+        - {label: "Location", name: "location", widget: "string"}
+        - label: Social
+          name: social
+          widget: object
+          fields: 
+            - {label: "Twitter", name: "twitter", widget: "string"}
+            - {label: "Facebook", name: "facebook", widget: "string"}
+            - {label: "Instagram", name: "instagram", widget: "string"}
+            - {label: "Discord", name: "discord", widget: "string"}
+            - {label: "Email", name: "email", widget: "string"}
+    - label: "Navigation Items"
+      name: "navigation"
+      file: "src/components/HeaderData.json"
+      extension: "json"
+      description: "Items to show in site navigation"
+      fields: 
+        - label: "Navigation Items"
+          name: "headersData"
+          widget: "list"
+          fields: 
+            - {label: Label, name: label, widget: string}
+            - {label: "Page path (short - eg /register or /guests/phoebe)", name: href, widget: string}
+            - {label: "Hidden from Navigation", name: disabled, widget: boolean}
+            - {label: "Link to outside website (eg google docs)", name: external, widget: boolean}

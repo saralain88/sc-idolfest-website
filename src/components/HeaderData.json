@@ -1,4 +1,4 @@
-[{
+{"headersData": [{
     "label": "Register",
     "href": "/register",
     "disabled": true
@@ -142,4 +142,4 @@
             "disabled": true
         }
     ]
-}]
+}]}

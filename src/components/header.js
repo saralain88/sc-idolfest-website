@@ -15,7 +15,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useStaticQuery, graphql } from 'gatsby'
-import headersData from './HeaderData.json';
+import { headersData } from './HeaderData.json';
 
 const useStyles = makeStyles(theme => ({
   header: {
