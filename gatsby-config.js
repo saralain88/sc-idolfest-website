@@ -4,7 +4,11 @@ require("dotenv").config({
 const siteMetadata = require('./siteMetadata.json');
 
 module.exports = {
-  siteMetadata,
+  siteMetadata: {
+    // The funky format here allows patching this file to work.
+    ...siteMetadata,
+    unusedProperty: ""
+  },
   plugins: [
     `nw-idolfest-theme`,
     `gatsby-plugin-material-ui`,
