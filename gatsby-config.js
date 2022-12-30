@@ -1,24 +1,10 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
+const siteMetadata = require('./siteMetadata.json');
 
 module.exports = {
-  siteMetadata: {
-    title: `SC IdolFest`,
-    shortDates: 'Aug 12, 2023',
-    longDates: 'August 12, 2023',
-    location: 'Torrance, CA',
-    siteUrl: 'https://scidolfest.com',
-    description: `Get ready to experience idol fun in the sun! Coming to the Torrance Cultural Center on Aug 12, 2023.`,
-    author: `The SC IdolFest Team`,
-    social: {
-      twitter: '@SCIdolFest',
-      facebook: 'SCIdolFest',
-      instagram: 'SCIdolFest',
-      discord: 'h5yJbXgTgE',
-      email: 'contact@scidolfest.com',
-    }
-  },
+  siteMetadata,
   plugins: [
     `nw-idolfest-theme`,
     `gatsby-plugin-material-ui`,
