@@ -33,8 +33,6 @@
           const titleSlug = slugify(entry.getIn(['data', 'title'], ''));
           return entry.get('data').set('slug', titleSlug);
         }
-
-        console.info('blah', entry);
       },
     });
   </script>

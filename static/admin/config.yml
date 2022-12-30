@@ -3,6 +3,7 @@ backend:
   branch: main
   repo: saralain88/sc-idolfest-website
   cms_label_prefix: web-editor/
+  # Comment this next line out to use this locally
   base_url: https://idolfest-auth-picluster.cpprograms.net
 # FIXME: If we adopt this, this url obviously needs to change
 site_url: https://saralain88.github.io/sc-idolfest-website/
@@ -32,7 +33,7 @@ collections:
     sort: 'date:desc'
     fields: 
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD"}
       - {label: "Template", name: "template", widget: "hidden", default: "blogpost"}
       - {label: "Body", name: "body", widget: "markdown"}
 
