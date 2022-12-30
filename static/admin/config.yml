@@ -91,6 +91,14 @@ collections:
           widget: "list"
           fields: 
             - {label: Label, name: label, widget: string}
-            - {label: "Page path (short - eg /register or /guests/phoebe)", name: href, widget: string}
-            - {label: "Hidden from Navigation", name: disabled, widget: boolean}
-            - {label: "Link to outside website (eg google docs)", name: external, widget: boolean}
+            - {label: "Page path (short - example: /register or /guests/phoebe)", name: href, widget: string}
+            - {label: "Hidden from Navigation", name: disabled, widget: boolean, required: false}
+            - {label: "Link is to outside website (eg google docs)", name: external, widget: boolean, required: false}
+            - label: Child Pages
+              name: children
+              widget: list
+              fields: 
+              - {label: Label, name: label, widget: string}
+              - {label: "Page path (short - example: /register or /guests/phoebe)", name: href, widget: string}
+              - {label: "Hidden from Navigation", name: disabled, widget: boolean, required: false}
+              - {label: "Link is to outside website (eg google docs)", name: external, widget: boolean, required: false}
